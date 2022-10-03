@@ -1,0 +1,16 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+<h2>Luo uusi käyttäjä</h2>
+<form method="post" novalidate>
+  {% csrf_token %}
+  <table>
+  {{ form.as_p }}
+  </table>
+  <button type="submit" value="Register">Luo tili</button>
+</form>
+{% endblock %}
+
+
+

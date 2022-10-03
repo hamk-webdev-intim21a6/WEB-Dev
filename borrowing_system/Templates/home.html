@@ -1,0 +1,25 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+<h1>Lainafanit</h1>
+{% if user.is_authenticated %}
+    <p>Tervetuloa {{ user }}</p>
+    <p><a href="{% url 'logout' %}">Kirjaudu ulos</a></p>
+
+    <h2>Lainasi</h2>
+    <ol>
+        <li>Kirja 1   eräpäivä: XX.XX.XXXX</li>
+        <li>Kirja 2   eräpäivä: XX.XX.XXXX</li>
+    </ol>
+
+{% else %}
+    <p>Sinun tulee kirjautua palveluun, lainataksesi teoksia.</p>
+    <p><a href="{% url 'login' %}">Kirjaudu</a></p>
+    <p><a href="{% url 'signup' %}">Luo uusi käyttäjä</a></p>
+{% endif %}
+<h2></h2>
+<ul>
+   
+</ul>
+{% endblock %}
