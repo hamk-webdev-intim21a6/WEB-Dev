@@ -1,0 +1,21 @@
+.menublock
+{
+    display: flex;
+    min-height: 30vh;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 2px 5px 1px lightgray;
+    border-radius: 5%;
+    transition: background 0.25s ease-in-out;
+}
+.menuitem:hover > .menublock
+{
+    cursor: pointer;
+    background-color: dodgerblue !important;
+}
+.bookblock:hover
+{
+    background-color: dodgerblue;
+    color:white;
+    cursor: pointer;
+}

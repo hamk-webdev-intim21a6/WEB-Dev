@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {# Load the tag library #}
+    {% load bootstrap5 %}
+
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirjasto</title>
+    <link rel="stylesheet" href="{% static 'libraryapp/books.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="{% url 'home' %}">Kirjasto</a>
+          <a href="{% url 'logout' %}">Kirjaudu ulos</a>
+        </div>
+    </nav>
+    <div>
+        {% if user.is_authenticated %}
+            {% block content %}{% endblock %}
+        {% else %}
+            <p>Sinun tulee kirjautua palveluun, lainataksesi teoksia.</p>
+            <p><a href="{% url 'login' %}">Kirjaudu</a></p>
+            <p><a href="{% url 'signup' %}">Luo uusi käyttäjä</a></p>
+        {% endif %}
+    </div>
+</body>
+</html>

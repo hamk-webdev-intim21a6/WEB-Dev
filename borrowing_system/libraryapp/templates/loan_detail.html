@@ -1,0 +1,20 @@
+{% extends 'book_base.html' %}
+{% block content %}
+    <div class="container py-4">
+        <div class="row m-3 p-2" style="background:cadetblue; min-height:50vh; border-radius:15px; box-shadow:2px 2px 2px">
+            <div class="col-8 text-white">
+                <h1>Kirja: {{loan.book.name}}</h1>
+                <h3>{{loan.book.book_author}}, {{loan.book.release_date}}</h3>
+                <div>ISBN:{{loan.book.ISBN_code}}</div>
+            </div>
+            <div class="col-4 text-white">
+                <div>Lainattu: {{ loan.loan_date }}</div>
+                <div>Palauta viimeistään: {{loan.due_date}}</div>
+                <div>Lainaa jäljellä {{ loan.days_left }} pv</div>
+                <a class="btn btn-secondary w-100" href="{% url 'returnbook' loan.pk %}">
+                    PALAUTA KIRJA
+                </a>
+            </div>
+        </div>
+    <div>
+{% endblock %}

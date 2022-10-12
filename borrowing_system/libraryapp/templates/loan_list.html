@@ -1,0 +1,25 @@
+{% extends 'book_base.html' %}
+{% block content %}
+    <div class="container py-4">
+        <div class="row">
+           {% if not loans %}
+           Ei lainattuja kirjoja!
+           {% else %}
+           {% for loan in loans %}
+                <a class="card col-3 text-decoration-none bookblock" href="{{ loan.get_absolute_url }}">
+                    <div class="card-body">
+                        <div class="card-title">{{ loan.book.name }}</div>
+                        <div class="card-text">
+                            {{ loan.book.book_author }}
+                            <br>
+                            {{ loan.release_date }}
+                            <br>
+                            Lainaa jäljellä: {{ loan.days_left }} päivää
+                        </div>
+                    </div>
+                </a> 
+            {% endfor %}
+            {% endif %}
+        </div>
+    <div>
+{% endblock %}

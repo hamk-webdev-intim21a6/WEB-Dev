@@ -1,0 +1,20 @@
+{% extends 'book_base.html' %}
+{% block content %}
+    <div class="container py-4">
+        <div class="row m-3 p-2" style="background:coral; min-height:50vh; border-radius:15px; box-shadow:2px 2px 2px">
+            <div class="col-8 text-white">
+                <h1>Kirja: {{book.name}}</h1>
+                <h3>{{book.book_author}}, {{book.release_date}}</h3>
+                <div>ISBN:{{book.ISBN_code}}</div>
+            </div>
+            <div class="col-4 text-white">
+                <div>Kirja saatavilla: {% if book.has_loanable_instance %} Kyllä {% else %} Ei {% endif %}
+                {% if book.has_loanable_instance %}
+                <a class="btn btn-secondary w-100" href="{% url 'loanbook' book.pk %}">
+                    LAINAA KIRJA
+                </a>
+                {% endif%}
+            </div>
+        </div>
+    <div>
+{% endblock %}

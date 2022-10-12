@@ -1,0 +1,20 @@
+{% extends 'book_base.html' %}
+{% block content %}
+    <div class="container">
+       <div class="row g-0 py-4 px-2">
+            <div class="col-6 p-1 menuitem">
+                <a class="menublock text-center text-white text-decoration-none" style="background:coral;" href="{% url 'books' %}">
+                    <div>Lainaa kirjoja</div>
+                    <div>Täältä voit etsiä kirjaston kirjoja sekä lainata niitä.</div>
+                </a>
+            </div>
+            <div class="col-6 p-1 menuitem">
+                <a class="menublock text-center text-white text-decoration-none" style="background:cadetblue;" href="{% url 'loans' %}">
+                    <div>Palauta kirjoja</div>
+                    <div>Täältä voit tarkastella nykyisiä lainojasi sekä niiden palautuspäiviä.</div>
+                </a>
+            </div>
+        <div> 
+    </div>
+
+{% endblock %}
